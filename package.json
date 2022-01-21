@@ -1,21 +1,20 @@
 {
   "name": "datacite-tracker",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Frontend Tracker for DataCite Analytics",
   "main": "dist/index.js",
   "browser": "dist/datacite-tracker.min.js",
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/datacite/collie",
+  "repository": "https://github.com/datacite/datacite-tracker",
   "license": "MIT",
   "scripts": {
     "build": "run-p build:*",
     "build:main": "tsc -p tsconfig.json",
     "ci": "(npm run build && npm run rollup) & npm t & wait",
     "test": "jest",
-    "rollup": "rollup -c",
-    "serve": "node httpserve.js"
+    "rollup": "rollup -c"
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",
