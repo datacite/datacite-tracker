@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>DataCite Tracker test</title>
+        <!-- Track Investigation -->
+        <script defer data-doi="10.5072/1234"
+                data-repoid="example.com"
+                data-metric="view"
+                data-localhost="true"
+                src="./dist/datacite-tracker.min.js"></script>
+        <!-- Track request -->
+        <script defer data-doi="10.5072/1234"
+                data-repoid="example.com"
+                data-metric="download"
+                data-localhost="true"
+                src="./dist/datacite-tracker.min.js"></script>
+
+        <!-- Manual tracking -->
+        <script data-autotrack="false" src="./dist/datacite-tracker.min.js"></script>
+        <script>
+            // Write out to console
+            const { trackMetric } = DataCiteTracker.Tracker({
+                repoid: 'example.com',
+                trackLocalhost: true,
+            })
+            trackMetric(DataCiteTracker.MetricType.View, { doi: "10.5072/56789" })
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
