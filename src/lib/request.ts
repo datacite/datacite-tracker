@@ -53,10 +53,8 @@ export function sendMetricEvent(
 
     r.onreadystatechange = () => {
         if (r.readyState !== 4) return;
-        if (r.status !== 200) {
-            console.error(
-                r.responseText
-            );
+        if (r.status === 400) {
+            console.error("[DataCiteTracker] " + r.responseText);
         }
 
         if (eventOptions && eventOptions.callback) {
