@@ -17,6 +17,23 @@ export function doi_from_url(url: string) {
     return ret;
 }
 
+export function doi_from_url_path(url: string) {
+    var ret = "";
+    var path, text, doi, url_t;
+
+    if (url &&
+        (url = decodeURIComponent(url)) &&
+        (url_t = new URL(url)) &&
+        (path = url_t.pathname) &&
+        (text = path.match(/(10\.\d{4,5}\/.+)$/)) &&
+        (doi = text[1].replace(/\/$/, '').toLowerCase()) &&
+        (validate_doi(doi))) {
+        ret = doi;
+    }
+
+    return ret;
+}
+
 export function validate_doi(doi: string) {
     var ret = "";
     var doi_r;
