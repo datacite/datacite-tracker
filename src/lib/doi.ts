@@ -34,6 +34,38 @@ export function doi_from_url_path(url: string) {
     return ret;
 }
 
+
+export function doi_in_schema_org_json(schema_org_json: string): string {
+    var ret = "";
+    var identifiers: string[]
+    var json, url, doi;
+
+    if ((json = JSON.parse(schema_org_json)) &&
+        (('@context' in json) && (json['@context'] == 'http://schema.org'))) {
+        if (('@id' in json) && (url = json['@id']) &&
+            (doi = doi_from_url(url))) {
+            ret = doi;
+        } else if (('identifier' in json) && json.identifier) {
+            identifiers = [];
+            if (typeof json.identifier == 'string') {
+                identifiers[0] = json.identifier;
+            } else if (Array.isArray(json.identifier)) {
+                identifiers = json.identifier;
+            }
+            identifiers.every(url => {
+                if (url && (doi = doi_from_url(url))) {
+                    ret = doi;
+                    return false;
+                } else {
+                    return true;
+                }
+            });
+        }
+    }
+
+    return ret;
+}
+
 export function validate_doi(doi: string) {
     var ret = "";
     var doi_r;
