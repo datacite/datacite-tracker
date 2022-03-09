@@ -82,7 +82,7 @@ export function Tracker(
     const trackMetric: TrackMetric = (metric, config, eventOptions) => {
         sendMetricEvent(metric, { ...getConfig(), ...config }, eventOptions);
         if (config !== undefined) {
-            console.log(`Tracking metric ${metric} for ${config.doi}`);
+            console.log(`[DataCiteTracker] Tracking metric ${metric} for ${config.doi}`);
         }
     };
 

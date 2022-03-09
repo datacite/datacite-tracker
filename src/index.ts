@@ -26,30 +26,34 @@ if (typeof window === "object") {
             }
         }
 
-        let repoid = scriptEl.dataset.repoid || location.hostname;
-        let metric = scriptEl.dataset.metric || "view";
-        let auto_track = JSON.parse(scriptEl.dataset.autotrack || "true");
-        let localhost = JSON.parse(scriptEl.dataset.localhost || "false");
-        let endpoint = scriptEl.dataset.endpoint || "https://analytics.stage.datacite.org";
+        if (doi == "") {
+            console.log("[DataCiteTracker] You need to add the DOI name into your tracking snippet")
+        } else {
+            let repoid = scriptEl.dataset.repoid || location.hostname;
+            let metric = scriptEl.dataset.metric || "view";
+            let auto_track = JSON.parse(scriptEl.dataset.autotrack || "true");
+            let localhost = JSON.parse(scriptEl.dataset.localhost || "false");
+            let endpoint = scriptEl.dataset.endpoint || "https://analytics.stage.datacite.org";
 
-        // Setup the tracker
-        const { trackMetric } = Tracker({
-            repoId: repoid,
-            trackLocalhost: localhost,
-            apiHost: endpoint,
-        })
+            // Setup the tracker
+            const { trackMetric } = Tracker({
+                repoId: repoid,
+                trackLocalhost: localhost,
+                apiHost: endpoint,
+            })
 
-        // Default usage tracking
-        if (auto_track) {
-            switch (metric) {
-                case "view":
-                    trackMetric(MetricType.View, { doi: doi });
-                    break;
-                case "download":
-                    trackMetric(MetricType.Download, { doi: doi });
-                    break;
-                default:
-                    console.log(`[DataCiteTracker] Unknown metric type ${metric}`);
+            // Default usage tracking
+            if (auto_track) {
+                switch (metric) {
+                    case "view":
+                        trackMetric(MetricType.View, { doi: doi });
+                        break;
+                    case "download":
+                        trackMetric(MetricType.Download, { doi: doi });
+                        break;
+                    default:
+                        console.log(`[DataCiteTracker] Unknown metric type ${metric}`);
+                }
             }
         }
     }
