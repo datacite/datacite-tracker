@@ -1,4 +1,4 @@
-import { doi_from_url, validate_doi, doi_from_url_path, doi_in_schema_org_json } from './doi';
+import { doi_from_url, validate_doi, doi_from_url_path, doi_from_schema_org_json } from './doi';
 
 // Test get DOI from a DOI style proxy URL i.e. httpos://doi.org/10.1234/56789
 test("DOI from doi proxy URL", () => {
@@ -24,7 +24,7 @@ test("DOI from URL path", () => {
 
 // DOI from schema.org json ld
 test("DOI from schema.org json ld", () => {
-    expect(doi_in_schema_org_json('{"@context":"http://schema.org","@id":"https://doi.org/10.5072/EXAMPLE.12345"}')).toBe("10.5072/example.12345");
-    expect(doi_in_schema_org_json('{"@context":"http://schema.org","identifier":"10.5072/EXAMPLE.12345"}')).toBe("10.5072/example.12345");
-    expect(doi_in_schema_org_json('{"@context":"http://schema.org","@id":"https://doi.org/10.5072/EXAMPLE.12345","identifier":"10.5072/EXAMPLE.12345"}')).toBe("10.5072/example.12345");
+    expect(doi_from_schema_org_json('{"@context":"http://schema.org","@id":"https://doi.org/10.5072/EXAMPLE.12345"}')).toBe("10.5072/example.12345");
+    expect(doi_from_schema_org_json('{"@context":"http://schema.org","identifier":"10.5072/EXAMPLE.12345"}')).toBe("10.5072/example.12345");
+    expect(doi_from_schema_org_json('{"@context":"http://schema.org","@id":"https://doi.org/10.5072/EXAMPLE.12345","identifier":"10.5072/EXAMPLE.12345"}')).toBe("10.5072/example.12345");
 });

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>DataCite Tracker test - Schema.org metadata</title>
+        <!-- Track Investigation -->
+        <script defer
+                data-repoid="example.com"
+                data-metric="view"
+                data-localhost="true"
+                src="./dist/datacite-tracker.min.js"></script>
+    </head>
+    <body>
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Dataset",
+            "@id": "https://doi.org/10.5072/1234",
+            "url": "https://demorepo.stage.datacite.org/doi-in-schema-org-metadata.html",
+            "name": "Wine Reviews",
+            "identifier": [ "https://doi.org/10.5072/1234", "https://doi.org/10.5072/1234" ],
+            "author": {
+                "name": "Fun Sample Datasets",
+                "@id": "domohelp.domo.com"
+            },
+            "schemaVersion": "http://datacite.org/schema/kernel-4",
+            "provider": {
+                "@type": "Organization",
+                "name": "datacite"
+            }
+        }
+    </script>
+    </body>
+</html>

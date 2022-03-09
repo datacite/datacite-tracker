@@ -35,7 +35,7 @@ export function doi_from_url_path(url: string) {
 }
 
 
-export function doi_in_schema_org_json(schema_org_json: string): string {
+export function doi_from_schema_org_json(schema_org_json: string): string {
     var ret = "";
     var identifiers: string[]
     var json, url, doi;
