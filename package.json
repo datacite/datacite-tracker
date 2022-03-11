@@ -1,6 +1,6 @@
 {
   "name": "@datacite/datacite-tracker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Frontend Tracker for DataCite Analytics",
   "main": "dist/index.js",
   "browser": "dist/datacite-tracker.min.js",
