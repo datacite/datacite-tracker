@@ -33,7 +33,7 @@ if (typeof window === "object") {
             let metric = scriptEl.dataset.metric || "view";
             let auto_track = JSON.parse(scriptEl.dataset.autotrack || "true");
             let localhost = JSON.parse(scriptEl.dataset.localhost || "false");
-            let endpoint = scriptEl.dataset.endpoint || "https://analytics.stage.datacite.org";
+            let endpoint = scriptEl.dataset.endpoint || "https://analytics.datacite.org";
 
             // Setup the tracker
             const { trackMetric } = Tracker({
