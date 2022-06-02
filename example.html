@@ -19,9 +19,8 @@
         <!-- Manual tracking -->
         <script data-autotrack="false" src="./dist/datacite-tracker.min.js"></script>
         <script>
-            // Write out to console
             const { trackMetric } = DataCiteTracker.Tracker({
-                repoId: 'example.com',
+                repoid: 'example.com',
                 trackLocalhost: true,
             })
             trackMetric(DataCiteTracker.MetricType.View, { doi: "10.5072/56789" })
