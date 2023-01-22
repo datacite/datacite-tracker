@@ -41,7 +41,7 @@ export function doi_from_schema_org_json(schema_org_json: string): string {
     var json, url, doi;
 
     if ((json = JSON.parse(schema_org_json)) &&
-        (('@context' in json) && (json['@context'] == 'http://schema.org'))) {
+        (('@context' in json) && (json['@context'] == 'http://schema.org' || json['@context'] == 'https://schema.org'))) {
         if (('@id' in json) && (url = json['@id']) &&
             (doi = doi_from_url(url))) {
             ret = doi;
