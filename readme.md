@@ -14,7 +14,7 @@ The script can be configured with various options using data attribute tags.
 
 - data-repoid - required - This is the unique identifier for tracking your usage analytics - This will be provided by DataCite
 - data-doi - optional - The DOI you want to track - This can be optionally removed and the code will scan for the DOI in schema.org, DC metadata, URL
-- data-metric - required - Type of metric to track, either 'view' or 'download'
+- data-metric - optional - Type of metric to track, either 'view' or 'download' - Defaults to 'view'
 - data-autotrack - optional - Advanced usage to stop the auto tracking, this is for manual set up, i.e. custom javascript calling the trackMetric as required.
 - data-endpoint - optional - Advanced usage to specify a different API endpoint where events are sent - defaults to https://analytics.datacite.org
 
