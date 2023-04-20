@@ -3,7 +3,7 @@
 Typescript/Javascript library that tracks usage events
 
 This package can be used in the browser or as node package, the former requires less configuration, but the latter can be useful if including as part of a SPA.
-Cancel changes
+
 ## Installation and Usage
 
 ### Include
