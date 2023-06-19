@@ -8,20 +8,23 @@
                 data-repoid="example.com"
                 data-metric="view"
                 data-localhost="true"
+                data-endpoint="http://localhost:8081"
                 src="./dist/datacite-tracker.min.js"></script>
         <!-- Track request -->
         <script defer data-doi="10.5072/1234"
                 data-repoid="example.com"
                 data-metric="download"
                 data-localhost="true"
+                data-endpoint="http://localhost:8081"
                 src="./dist/datacite-tracker.min.js"></script>
 
         <!-- Manual tracking -->
         <script data-autotrack="false" src="./dist/datacite-tracker.min.js"></script>
         <script>
             const { trackMetric } = DataCiteTracker.Tracker({
-                repoid: 'example.com',
+                repoId: 'example.com',
                 trackLocalhost: true,
+                apiHost: 'http://localhost:8081'
             })
             trackMetric(DataCiteTracker.MetricType.View, { doi: "10.5072/56789" })
         </script>
